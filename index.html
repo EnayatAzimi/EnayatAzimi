@@ -1,115 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>EnayatAzimi | Cybersecurity & Linux Student</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #0d1117;
-        color: #c9d1d9;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        text-align: center;
-        padding: 50px 20px;
-        background-color: #161b22;
-        border-bottom: 1px solid #30363d;
-    }
-    header img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 3px solid #58a6ff;
-        box-shadow: 0 0 15px #58a6ff;
-    }
-    h1 {
-        margin-top: 20px;
-        font-size: 32px;
-        color: #58a6ff;
-    }
-    h3 {
-        color: #8b949e;
-    }
-    section {
-        max-width: 850px;
-        margin: 40px auto;
-        padding: 20px;
-    }
-    h2 {
-        border-left: 4px solid #58a6ff;
-        padding-left: 10px;
-        color: #58a6ff;
-    }
-    ul li {
-        margin-bottom: 8px;
-    }
-    a {
-        color: #58a6ff;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    footer {
-        margin-top: 40px;
-        padding: 20px;
-        background-color: #161b22;
-        text-align: center;
-        color: #8b949e;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enayat Azimi | Cybersecurity</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #0d0d0d;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+        }
+
+        header {
+            background: #000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #e60000;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .hero {
+            background: url("hero.jpg") center/cover no-repeat;
+            height: 530px;
+            display: flex;
+            align-items: center;
+            padding-left: 60px;
+            border-bottom: 3px solid #e60000;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin: 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px #000;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 500px;
+            margin-top: 10px;
+            opacity: 0.9;
+            text-shadow: 0 0 10px #000;
+        }
+
+        .section {
+            padding: 40px;
+            border-bottom: 1px solid #222;
+        }
+
+        h3 {
+            border-left: 4px solid #e60000;
+            padding-left: 12px;
+            font-size: 26px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: #111;
+            padding: 20px;
+            width: 220px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #000;
+            border-top: 1px solid #222;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #ff3333;
+            text-decoration: none;
+        }
+
+    </style>
 </head>
 
 <body>
 
 <header>
-    <img src="profil.jpg" alt="EnayatAzimi Profile Photo">
-    <h1>Saeed</h1>
-    <h3>Linux & Cybersecurity Enthusiast</h3>
+    <h1>ENAYAT AZIMI</h1>
 </header>
 
-<section>
-    <h2>About Me</h2>
+<section class="hero">
+    <div>
+        <h2>Cybersecurity Student</h2>
+        <p>I am learning Linux, Networking, Security+, CEH, Python, Bash scripting, and ethical hacking tools.</p>
+    </div>
+</section>
+
+<section class="section">
+    <h3>About Me</h3>
     <p>
-        I'm EnayatAzimi — a passionate cybersecurity and Linux student.  
-        Currently learning Linux Essentials, Network+, Bash scripting, and cybersecurity fundamentals.  
-        My goal is to become a skilled cybersecurity professional InshaAllah and build tools, scripts,  
-        and secure systems to help others.
+        My name is <b>Enayat Azimi</b>.  
+        I am passionate about cybersecurity, ethical hacking, Linux systems, and penetration testing.
     </p>
 </section>
 
-<section>
-    <h2>Skills</h2>
-    <ul>
-        <li>Linux (Ubuntu, Kali)</li>
-        <li>Bash scripting</li>
-        <li>Network+ fundamentals</li>
-        <li>Security+ basics</li>
-        <li>Git & GitHub</li>
-        <li>Python (beginner)</li>
-    </ul>
+<section class="section">
+    <h3>Skills</h3>
+    <div class="skills">
+        <div class="skill-box">Linux Essentials</div>
+        <div class="skill-box">Network+</div>
+        <div class="skill-box">Security+</div>
+        <div class="skill-box">Python</div>
+        <div class="skill-box">Bash Scripting</div>
+        <div class="skill-box">Kali Linux</div>
+        <div class="skill-box">Nmap</div>
+        <div class="skill-box">Wireshark</div>
+        <div class="skill-box">CEH (in progress)</div>
+    </div>
 </section>
 
-<section>
-    <h2>Projects</h2>
-    <ul>
-        <li>Ping Automation Script (Bash)</li>
-        <li>Linux Permission Manager Script</li>
-        <li>User & Group Management Automation</li>
-        <li>More coming soon...</li>
-    </ul>
-</section>
-
-<section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:saeedazimi@gmail.com">saeedazimi@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/enayatazimi">github.com/EnayatAzimi</a></p>
+<section class="section">
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:saeedazimi460@gmail.com">saeedazimi460@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/enayatazimi" target="_blank">github.com/enayatazimi</a></p>
 </section>
 
 <footer>
-    © 2025 Enayat— Cybersecurity & Linux Student
+    © 2025 Enayat Azimi — All rights reserved.
 </footer>
 
 </body>
