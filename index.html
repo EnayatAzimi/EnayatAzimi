@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
             background: #0d0d0d;
             font-family: Arial, Helvetica, sans-serif;
             color: #fff;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* مرورگرهای مدرن */
         }
 
         /* --- 🔥 منوی نئونی قرمز --- */
@@ -144,9 +144,74 @@
             text-decoration: none;
         }
 
-        /* --- 📱 بخش مخصوص موبایل (ریسپانسیو) --- */
-        @media (max-width: 768px) {
+        /* ---------- بخش آیکون‌های نئونی بالای فوتر ---------- */
+        .social-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            padding: 28px 0 8px 0;
+            align-items: center;
+        }
+.social-btn {
+            width: 56px;
+            height: 56px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            cursor: pointer;
+            user-select: none;
+            transform-origin: center center;
+            filter: drop-shadow(0 0 12px rgba(230,0,0,0.7));
+            transition: transform 0.18s ease, filter 0.18s ease;
+        }
 
+        .social-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* استایل SVG (Stroke neon) */
+        .social-svg {
+            width: 36px;
+            height: 36px;
+            display: block;
+        }
+
+        .neon-stroke {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 1.8;
+            stroke: #ff2a2a;
+            fill: none;
+            filter: drop-shadow(0 0 8px #ff2a2a) drop-shadow(0 0 18px rgba(255,60,60,0.6));
+            transition: stroke 0.2s ease, filter 0.2s ease;
+        }
+
+        .neon-fill {
+            fill: #ff2a2a;
+            filter: drop-shadow(0 0 8px #ff2a2a) drop-shadow(0 0 14px rgba(255,60,60,0.4));
+            transition: fill 0.2s ease, filter 0.2s ease;
+        }
+
+        .social-btn:hover .neon-stroke,
+        .social-btn:hover .neon-fill {
+            stroke: #fff;
+            fill: #fff;
+            filter: drop-shadow(0 0 12px #ff4d4d) drop-shadow(0 0 26px rgba(255,90,90,0.75));
+        }
+
+        /* انیمیشن اسپین (وقتی کلاس spin اضافه شود) */
+        @keyframes spin360 {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        .spin {
+            animation: spin360 0.8s cubic-bezier(.2,.9,.2,1);
+        }
+
+        /* --- 📱 ریسپانسیو --- */
+        @media (max-width: 768px) {
             header {
                 padding: 15px 20px;
             }
@@ -168,7 +233,8 @@
             .sticky-menu a {
                 font-size: 14px;
             }
-.hero {
+
+            .hero {
                 height: 380px;
                 padding-left: 20px;
                 background-position: center;
@@ -195,8 +261,22 @@
             .info-block img {
                 width: 150px;
             }
-        }
 
+            .social-wrap {
+                gap: 18px;
+                padding: 18px 0 6px 0;
+            }
+
+            .social-btn {
+                width: 48px;
+                height: 48px;
+            }
+
+            .social-svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
     </style>
 </head>
 
@@ -204,20 +284,20 @@
 
 <!-- 🔥 منوی هکری -->
 <div class="sticky-menu">
-    <a href="#home">Home</a>
-    <a href="#about">About me</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About me</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#contact" class="nav-link">Contact</a>
 </div>
 
 <header id="home">
     <h1>
-        <img src="me.jpg" class="profile-pic">
+        <img src="me.jpg" class="profile-pic" alt="Profile picture of Enayat Azimi">
         ENAYAT AZIMI
     </h1>
 </header>
 
-<section class="hero">
+<section class="hero" aria-label="hero section">
     <div>
         <h2>Cybersecurity Student</h2>
         <p>I am learning Linux, Networking, Security+, CEH, Python, Bash scripting, and ethical hacking tools.</p>
@@ -231,11 +311,10 @@
         I am passionate about cybersecurity, ethical hacking, Linux systems, and penetration testing.
     </p>
 </section>
-
 <section class="section" id="skills">
     <h3>Network+</h3>
     <div class="info-block">
-        <img src="networkplus.webp">
+        <img src="networkplus.webp" alt="Network+">
         <div class="info-text">
             Network+ is the foundation of all IT and cybersecurity.  
             It teaches networking basics, protocols, ports, OSI model, routing, switching, and troubleshooting.  
@@ -247,7 +326,7 @@
 <section class="section">
 <h3>Linux</h3>
     <div class="info-block">
-        <img src="linux.png">
+        <img src="linux.png" alt="Linux">
         <div class="info-text">
             Linux is the heart of cybersecurity.  
             Almost all hacking tools run on Linux, especially Kali, ParrotOS, and Ubuntu Server.  
@@ -259,7 +338,7 @@
 <section class="section">
     <h3>Bash Scripting</h3>
     <div class="info-block">
-        <img src="bash.webp">
+        <img src="bash.webp" alt="Bash">
         <div class="info-text">
             Bash scripting allows you to automate tasks, build your own tools, scan networks,  
             and manage systems efficiently.  
@@ -271,7 +350,7 @@
 <section class="section">
     <h3>Security+</h3>
     <div class="info-block">
-        <img src="securityplus.jpg">
+        <img src="securityplus.jpg" alt="Security+">
         <div class="info-text">
             Security+ teaches the fundamentals of cybersecurity: encryption, risks, attacks,  
             security policies, secure network design, and incident response.  
@@ -283,7 +362,7 @@
 <section class="section">
     <h3>White Hat Hacker</h3>
     <div class="info-block">
-        <img src="whitehat.png">
+        <img src="whitehat.png" alt="White hat">
         <div class="info-text">
             A White Hat Hacker uses hacking skills for good — to protect people, organizations, and systems.  
             Their mission is to stop attackers, secure networks, and report vulnerabilities legally and ethically.
@@ -294,7 +373,7 @@
 <section class="section">
     <h3>CEH (Certified Ethical Hacker)</h3>
     <div class="info-block">
-        <img src="ceh.jpg">
+        <img src="ceh.jpg" alt="CEH">
         <div class="info-text">
             CEH is one of the most famous hacking certifications.  
             It teaches penetration testing, exploits, reconnaissance, scanning, enumeration,  
@@ -302,15 +381,117 @@
         </div>
     </div>
 </section>
+
+<!-- ---------- آیکون‌های شبکه‌های اجتماعی (نئونی) بالای فوتر ---------- -->
+<div class="social-wrap" aria-label="social links">
+    <!-- YouTube -->
+    <div class="social-btn" role="button" tabindex="0"
+         data-href="https://youtube.com/@shadowguardtech?si=ZsidUowVjtZMVNoC"
+         title="YouTube — ShadowGuardTech" aria-label="YouTube — ShadowGuardTech">
+        <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <!-- بدنه یوتیوب -->
+            <path class="neon-stroke" d="M23.5 6.1c-.2-1.6-1.6-2.9-3.2-3.1C17.4 2.6 12 2.6 12 2.6s-5.4 0-8.3.4C2.1 3.2.8 4.5.6 6.1.2 9 .2 12 .2 12s0 3 .4 5.9c.2 1.6 1.6 2.9 3.2 3.1 2.9.4 8.3.4 8.3.4s5.4 0 8.3-.4c1.6-.2 3-1.5 3.2-3.1.4-2.9.4-5.9.4-5.9s0-3-.4-5.9z"/>
+            <!-- مثلث پخش -->
+            <path class="neon-fill" d="M10 15.5V8.5l6 3.5-6 3.5z"/>
+        </svg>
+    </div>
+
+    <!-- Instagram -->
+    <div class="social-btn" role="button" tabindex="0"
+         data-href="https://www.instagram.com/saeedazimi_official/"
+         title="Instagram — saeedazimi_official" aria-label="Instagram — saeedazimi_official">
+        <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <!-- بیرون قاب -->
+            <rect class="neon-stroke" x="3" y="3" width="18" height="18" rx="5"/>
+            <!-- دایره داخلی -->
+            <circle class="neon-stroke" cx="12" cy="12" r="3.2"/>
+            <!-- نقطه بالا -->
+            <circle class="neon-fill" cx="17.5" cy="6.5" r="0.7"/>
+        </svg>
+    </div>
+<!-- LinkedIn -->
+    <div class="social-btn" role="button" tabindex="0"
+         data-href="https://ir.linkedin.com/in/saeed-azimi-282306399"
+         title="LinkedIn — Saeed Azimi" aria-label="LinkedIn — Saeed Azimi">
+        <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="neon-stroke" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8.5h5V24H0zM8.5 8.5h4.8v2.1h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.8V24h-5V16.1c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.3V24h-5V8.5z"/>
+        </svg>
+    </div>
+</div>
+
 <section class="section" id="contact">
     <h3>Contact</h3>
     <p>Email: <a href="mailto:saeedazimi460@gmail.com">saeedazimi460@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/enayatazimi" target="_blank">github.com/enayatazimi</a></p>
+    <p>GitHub: <a href="https://github.com/enayatazimi" target="_blank" rel="noopener noreferrer">github.com/enayatazimi</a></p>
 </section>
 
 <footer>
     © 2025 Enayat Azimi — All rights reserved.
 </footer>
+
+<script>
+    // --- رفتار کلیک روی آیکون‌ها: ابتدا چرخش، بعد باز شدن لینک در تب جدید ---
+    (function(){
+        const buttons = document.querySelectorAll('.social-btn');
+
+        buttons.forEach(btn => {
+            // تابع اجرا در کلیک یا اینتر / اسپیس کیبورد
+            const activate = (e) => {
+                // اگر کلیک روی لینک داخلی ناحیه اسکرول باشه مانع نمیشیم
+                e && e.preventDefault && e.preventDefault();
+
+                const url = btn.getAttribute('data-href');
+                if (!url) return;
+
+                // اضافه کردن کلاس spin به خودِ دکمه برای اجرا شدن انیمیشن
+                // توجه: animationend را برای هر دکمه جداگانه گوش می‌دهیم
+                btn.classList.remove('spin');
+                // force reflow برای اینکه کلاس دوباره اعمال شود حتی اگر قبلاً بوده
+                // (تکنیک برای ری‌استارت انیمیشن)
+                void btn.offsetWidth;
+                btn.classList.add('spin');
+
+                const onAnimEnd = (ev) => {
+                    // حذف listener تا دوباره اجرا نشود
+                    btn.removeEventListener('animationend', onAnimEnd);
+                    // باز کردن لینک در تب جدید (امن)
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                };
+
+                btn.addEventListener('animationend', onAnimEnd);
+            };
+
+            // ماوس کلیک
+            btn.addEventListener('click', activate);
+
+            // دسترسی کیبورد (Enter / Space)
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    activate(e);
+                }
+            });
+        });
+
+        // --- اسکرول نرمِ منو (برای پوشش مرورگرهایی که scroll-behavior CSS پشتیبانی کاملی ندارند) ---
+        document.querySelectorAll('.nav-link').forEach(a => {
+            a.addEventListener('click', function(e){
+                const href = this.getAttribute('href');
+                if (!href || !href.startsWith('#')) return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (!target) return;
+                // استفاده از scrollIntoView با رفتار smooth
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // اگر منو موبایل داشتید می‌توانید اینجا آن را ببندید
+            });
+        });
+
+        // Optional: جلوگیری از فوکوس ناخواسته در کلیک (زیبایی)
+        document.querySelectorAll('.social-btn').forEach(b=>{
+            b.addEventListener('mouseup', ()=> b.blur());
+        });
+    })();
+</script>
 
 </body>
 </html>
