@@ -2,341 +2,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enayat Azimi | Cybersecurity</title><style>
-    /* ---- پایه ----- */
+    <title>Enayat Azimi | Cybersecurity</title>
+
+    <!-- Permanent Marker font -->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <style>
     :root{--bg:#0d0d0d;--red:#e60000;--red-soft:#ff4444;--text:#ffffff}
     *{box-sizing:border-box}
-    body {
-        margin: 0;
-        background: var(--bg);
-        font-family: Arial, Helvetica, sans-serif;
-        color: var(--text);
+    body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+
+    .sticky-menu{position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,0.85);padding:12px 0;display:flex;justify-content:center;gap:35px;z-index:9999;border-bottom:2px solid var(--red)}
+    .sticky-menu a{color:var(--red-soft);font-size:18px;text-decoration:none;font-weight:bold;letter-spacing:1px;transition:color .25s}
+    .sticky-menu a:hover{color:#fff}
+
+    header{margin-top:60px;background:#000;padding:20px 40px;display:flex;align-items:center;gap:15px;border-bottom:1px solid #222}
+    .profile-pic{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--red)}
+
+    /* Updated name style */
+    .name-highlight{
+        font-family:'Permanent Marker',cursive;
+        font-size:3rem;
+        color:#f4b327;
+        letter-spacing:2px;
+        text-shadow:0 0 6px #000;
+        text-transform:none;
     }
 
-    /* --- منوی ثابت --- */
-    .sticky-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(0,0,0,0.85);
-        padding: 12px 0;
-        display: flex;
-        justify-content: center;
-        gap: 35px;
-        z-index: 9999;
-        border-bottom: 2px solid var(--red);
-        box-shadow: 0 0 8px rgba(230,0,0,0.12);
-        backdrop-filter: blur(6px);
+    .hero{background:url("hero.jpg.webp") center/cover no-repeat;height:530px;display:flex;align-items:center;padding-left:60px;border-bottom:3px solid var(--red)}
+    .hero h2{font-size:48px;margin:0;color:#fff;text-shadow:0 0 8px #000}
+    .hero p{font-size:18px;max-width:500px;margin-top:10px}
+
+    .section{padding:40px;border-bottom:1px solid #222}
+    h3{border-left:4px solid var(--red);padding-left:12px;font-size:26px}
+    .info-block{display:flex;align-items:center;gap:20px;margin:25px 0}
+    .info-block img{width:130px;border-radius:10px;border:2px solid #222}
+
+    footer{text-align:center;padding:20px;background:#000;border-top:1px solid #222}
+
+    /* Social icons */
+    .social-wrap{display:flex;justify-content:center;gap:28px;padding:28px 0}
+    .social-btn{
+        width:56px;height:56px;display:inline-flex;align-items:center;justify-content:center;
+        border-radius:12px;cursor:pointer;background:rgba(255,0,0,0.04);border:1px solid rgba(255,0,0,0.08);
+        transform-origin:center;transition:transform .18s ease;
     }
 
-    .sticky-menu a {
-        color: var(--red-soft);
-        font-size: 18px;
-        text-decoration: none;
-        font-weight: bold;
-        letter-spacing: 1px;
-        transition: color 0.25s ease, text-shadow 0.25s ease;
-    }
+    /* Hover fixed (no brightness) */
+    .social-btn:hover .neon-stroke,
+    .social-btn:hover .neon-fill { stroke:var(--red);fill:var(--red) }
 
-    .sticky-menu a:hover {
-        color: #fff;
-        text-shadow: 0 0 8px rgba(0,0,0,0.6);
-    }
+    .social-svg{width:36px;height:36px}
+    .neon-stroke{stroke:var(--red);fill:none;stroke-width:1.8}
+    .neon-fill{fill:var(--red)}
 
-    header {
-        margin-top: 60px;
-        background: #000;
-        padding: 20px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #222;
-    }
+    @keyframes spin360{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+    .spin{animation:spin360 .8s cubic-bezier(.2,.9,.2,1)}
 
-    header h1 {
-        margin: 0;
-        color: var(--red);
-        font-size: 28px;
-        letter-spacing: 1px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
+    </style>
+</head>
 
-    .profile-pic {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid var(--red);
-    }
+<body>
 
-    /* کلاس مخصوص برای اسم - می‌تونم طبق عکس شما تغییر بدم */
-    .name-highlight {
-font-family: 'Grunge', 'Stalinist One', sans-serif;
-font-weight: 900;
-color: #f4b327;
-letter-spacing: 3px;
-text-transform: uppercase;
-font-size: 3.2rem;
-text-shadow: 0 0 6px #000;
-
-}
-
-.hero {
-        background: url("hero.jpg.webp") center/cover no-repeat;
-        height: 530px;
-        display: flex;
-        align-items: center;
-        padding-left: 60px;
-        border-bottom: 3px solid var(--red);
-    }
-
-    .hero h2 {
-        font-size: 48px;
-        margin: 0;
-        font-weight: bold;
-        text-shadow: 0 0 8px rgba(0,0,0,0.6);
-    }
-
-    .hero p { font-size: 18px; max-width: 500px; margin-top: 10px; opacity: 0.95 }
-
-    .section { padding: 40px; border-bottom: 1px solid #222 }
-
-    h3 { border-left: 4px solid var(--red); padding-left: 12px; font-size: 26px; margin-bottom: 15px }
-
-    .info-block { display: flex; align-items: center; gap: 20px; margin: 25px 0 }
-    .info-block img { width: 130px; border-radius: 10px; border: 2px solid #222 }
-    .info-text { max-width: 700px; font-size: 17px; opacity: 0.95; line-height: 1.6 }
-
-    footer { padding: 20px; text-align: center; background: #000; border-top: 1px solid #222; margin-top: 20px; font-size: 14px }
-    a { color: #ff3333; text-decoration: none }
-
-    /* ---------- آیکون‌های شبکه‌های اجتماعی (حذف نئون، فقط قرمز) ---------- */
-    .social-wrap { display: flex; justify-content: center; gap: 28px; padding: 28px 0 8px 0; align-items: center }
-
-    .social-btn {
-        width: 56px; height: 56px; display: inline-flex; align-items: center; justify-content: center;
-        border-radius: 12px; cursor: pointer; user-select: none; transform-origin: center center;
-        transition: transform 0.18s ease, filter 0.18s ease, background-color 0.18s ease;
-        background: rgba(255,0,0,0.04);
-        border: 1px solid rgba(255,0,0,0.08);
-    }
-
-    .social-btn:active { transform: scale(0.95) }
-
-    .social-svg { width: 36px; height: 36px; display: block }
-/* رنگ خط و پرکنش ساده قرمز بدون افکت نئون */
-    .neon-stroke { stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; stroke: var(--red); fill: none; filter: none; transition: stroke .18s ease }
-    .neon-fill { fill: var(--red); filter: none; transition: fill .18s ease }
-
-    /* وقتی اشاره‌گر میره روش فقط رنگ حفظ بشه (بدون glow یا روشنایی اضافه) */
-    .social-btn:hover .neon-stroke, .social-btn:hover .neon-fill { stroke: var(--red); fill: var(--red) }
-
-    /* انیمیشن اسپین (حفظ شد) */
-    @keyframes spin360 { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-    .spin { animation: spin360 0.8s cubic-bezier(.2,.9,.2,1) }
-
-    /* --- ریسپانسیو --- */
-    @media (max-width:768px){
-        header{padding:15px 20px}
-        header h1{font-size:22px}
-        .profile-pic{width:40px;height:40px}
-        .sticky-menu{gap:20px;padding:10px 0}
-        .sticky-menu a{font-size:14px}
-        .hero{height:380px;padding-left:20px;background-position:center}
-        .hero h2{font-size:32px}
-        .hero p{font-size:14px;max-width:260px}
-        .section{padding:25px 20px}
-        .info-block{flex-direction:column;text-align:center}
-        .info-block img{width:150px}
-        .social-wrap{gap:18px;padding:18px 0 6px 0}
-        .social-btn{width:48px;height:48px}
-        .social-svg{width:30px;height:30px}
-    }
-</style>
-
-<link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
-<style>
-@font-face {
-    font-family: 'Grunge';
-    src: url('https://fonts.cdnfonts.com/s/15086/Youmurdererbb-pwoK.otf') format('opentype');
-}
-</style>
-</head><body><!-- 🔥 منوی هکری --><div class="sticky-menu">
+<div class="sticky-menu">
     <a href="#home" class="nav-link">Home</a>
     <a href="#about" class="nav-link">About me</a>
     <a href="#skills" class="nav-link">Skills</a>
     <a href="#contact" class="nav-link">Contact</a>
-</div><header id="home">
-    <h1>
-        <img src="me.jpg" class="profile-pic" alt="Profile picture of Enayat Azimi">
-        <span class="name-highlight">ENAYAT AZIMI</span>
-    </h1>
-</header><section class="hero" aria-label="hero section">
+</div>
+
+<header id="home">
+    <img src="me.jpg" class="profile-pic">
+    <span class="name-highlight">Enayat Azimi</span>
+</header>
+
+<section class="hero">
     <div>
         <h2>Cybersecurity Student</h2>
         <p>I am learning Linux, Networking, Security+, CEH, Python, Bash scripting, and ethical hacking tools.</p>
     </div>
-</section><section class="section" id="about">
+</section>
+
+<section class="section" id="about">
     <h3>About Me</h3>
-    <p>
-        My name is <b>Enayat Azimi</b>.  
-        I am passionate about cybersecurity, ethical hacking, Linux systems, and penetration testing.
-    </p>
-</section><!-- PART 2: skills & social icons --><section class="section" id="skills">
+    <p>My name is <b>Enayat Azimi</b>. I am passionate about cybersecurity, Linux, and penetration testing.</p>
+</section>
+
+<section class="section" id="skills">
     <h3>Network+</h3>
     <div class="info-block">
-        <img src="networkplus.webp" alt="Network+">
-        <div class="info-text">
-            Network+ is the foundation of all IT and cybersecurity.  
-            It teaches networking basics, protocols, ports, OSI model, routing, switching, and troubleshooting.  
-            Without strong networking, hacking is impossible.
-        </div>
+        <img src="networkplus.webp">
+        <div>Network+ is the foundation of IT and cybersecurity.</div>
     </div>
-</section><section class="section">
-<h3>Linux</h3>
+</section>
+
+<section class="section">
+    <h3>Linux</h3>
     <div class="info-block">
-        <img src="linux.png" alt="Linux">
-        <div class="info-text">
-            Linux is the heart of cybersecurity.  
-            Almost all hacking tools run on Linux, especially Kali, ParrotOS, and Ubuntu Server.  
-            Learning terminal commands gives you full control over systems.
-        </div>
+        <img src="linux.png">
+        <div>Linux is essential for cybersecurity.</div>
     </div>
-</section><section class="section">
+</section>
+
+<section class="section">
     <h3>Bash Scripting</h3>
     <div class="info-block">
-        <img src="bash.webp" alt="Bash">
-        <div class="info-text">
-            Bash scripting allows you to automate tasks, build your own tools, scan networks,  
-            and manage systems efficiently.  
-            Every ethical hacker needs to understand scripting.
-        </div>
-</div>
-</section><section class="section">
+        <img src="bash.webp">
+        <div>Bash scripting automates tasks and builds tools.</div>
+    </div>
+</section>
+
+<section class="section">
     <h3>Security+</h3>
     <div class="info-block">
-        <img src="securityplus.jpg" alt="Security+">
-        <div class="info-text">
-            Security+ teaches the fundamentals of cybersecurity: encryption, risks, attacks,  
-            security policies, secure network design, and incident response.  
-            It's the best defensive-security foundation.
-        </div>
+        <img src="securityplus.jpg">
+        <div>Security+ teaches cybersecurity fundamentals.</div>
     </div>
-</section><section class="section">
+</section>
+
+<section class="section">
     <h3>White Hat Hacker</h3>
     <div class="info-block">
-        <img src="whitehat.png" alt="White hat">
-        <div class="info-text">
-            A White Hat Hacker uses hacking skills for good — to protect people, organizations, and systems.  
-            Their mission is to stop attackers, secure networks, and report vulnerabilities legally and ethically.
-        </div>
+        <img src="whitehat.png">
+        <div>White Hats use hacking skills ethically.</div>
     </div>
-</section><section class="section">
-    <h3>CEH (Certified Ethical Hacker)</h3>
+</section>
+
+<section class="section">
+    <h3>CEH</h3>
     <div class="info-block">
-        <img src="ceh.jpg" alt="CEH">
-        <div class="info-text">
-            CEH is one of the most famous hacking certifications.  
-            It teaches penetration testing, exploits, reconnaissance, scanning, enumeration,  
-            and real-world attack techniques used by both hackers and defenders.
-        </div>
+        <img src="ceh.jpg">
+        <div>CEH teaches real-world hacking techniques.</div>
     </div>
-</section><!-- ---------- آیکون‌های شبکه‌های اجتماعی (بدون نئون) ---------- --><div class="social-wrap" aria-label="social links">
-    <!-- YouTube -->
-    <div class="social-btn" role="button" tabindex="0"
-         data-href="https://youtube.com/@shadowguardtech?si=ZsidUowVjtZMVNoC"
-         title="YouTube — ShadowGuardTech" aria-label="YouTube — ShadowGuardTech">
-        <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path class="neon-stroke" d="M23.5 6.1c-.2-1.6-1.6-2.9-3.2-3.1C17.4 2.6 12 2.6 12 2.6s-5.4 0-8.3.4C2.1 3.2.8 4.5.6 6.1.2 9 .2 12 .2 12s0 3 .4 5.9c.2 1.6 1.6 2.9 3.2 3.1 2.9.4 8.3.4 8.3.4s5.4 0 8.3-.4c1.6-.2 3-1.5 3.2-3.1.4-2.9.4-5.9.4-5.9s0-3-.4-5.9z"/>
-            <path class="neon-fill" d="M10 15.5V8.5l6 3.5-6 3.5z"/>
-        </svg>
-    </div><!-- Instagram -->
-<div class="social-btn" role="button" tabindex="0"
-     data-href="https://www.instagram.com/saeedazimi_official/"
-     title="Instagram — saeedazimi_official" aria-label="Instagram — saeedazimi_official">
-    <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
-        <rect class="neon-stroke" x="3" y="3" width="18" height="18" rx="5"/>
-        <circle class="neon-stroke" cx="12" cy="12" r="3.2"/>
-        <circle class="neon-fill" cx="17.5" cy="6.5" r="0.7"/>
-    </svg>
+</section>
+
+<div class="social-wrap">
+
+    <div class="social-btn" data-href="https://youtube.com/@shadowguardtech">
+        <svg class="social-svg"><path class="neon-stroke"/><path class="neon-fill"/></svg>
+    </div>
+
+    <div class="social-btn" data-href="https://instagram.com/saeedazimi_official">
+        <svg class="social-svg"><rect class="neon-stroke"/><circle class="neon-stroke"/><circle class="neon-fill"/></svg>
+    </div>
+
+    <div class="social-btn" data-href="https://linkedin.com/in/saeed-azimi-282306399">
+        <svg class="social-svg"><path class="neon-stroke"/></svg>
+    </div>
+
 </div>
 
-<!-- LinkedIn -->
-<div class="social-btn" role="button" tabindex="0"
-     data-href="https://ir.linkedin.com/in/saeed-azimi-282306399"
-     title="LinkedIn — Saeed Azimi" aria-label="LinkedIn — Saeed Azimi">
-    <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
-        <path class="neon-stroke" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8.5h5V24H0zM8.5 8.5h4.8v2.1h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.1 3.4 6.1 7.8V24h-5V16.1c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.3V24h-5V8.5z"/>
-    </svg>
-</div>
-
-</div><section class="section" id="contact">
+<section class="section" id="contact">
     <h3>Contact</h3>
-    <p>Email: <a href="mailto:saeedazimi460@gmail.com">saeedazimi460@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/enayatazimi" target="_blank" rel="noopener noreferrer">github.com/enayatazimi</a></p>
-</section><footer>
-    © 2025 Enayat Azimi — All rights reserved.
-</footer><script>
-(function(){
-    // ---------- رفتار دکمه‌های شبکه اجتماعی (اسپین سپس باز شدن لینک) ----------
-    const buttons = document.querySelectorAll('.social-btn');
+    <p>Email: saeedazimi460@gmail.com</p>
+    <p>GitHub: github.com/enayatazimi</p>
+</section>
 
-    buttons.forEach(btn => {
-        const activate = (e) => {
-            e && e.preventDefault && e.preventDefault();
-const url = btn.getAttribute('data-href');
-            if (!url) return;
+<footer>© 2025 Enayat Azimi</footer>
+
+<script>
+(function(){
+    const buttons=document.querySelectorAll('.social-btn');
+
+    buttons.forEach(btn=>{
+        const activate=(e)=>{
+            e.preventDefault();
+            const url=btn.getAttribute('data-href');
+            if(!url) return;
+
             btn.classList.remove('spin');
             void btn.offsetWidth;
             btn.classList.add('spin');
-            const onAnimEnd = () => {
-                btn.removeEventListener('animationend', onAnimEnd);
-                window.open(url, '_blank', 'noopener,noreferrer');
+
+            const end=()=>{
+                btn.removeEventListener('animationend',end);
+                window.open(url,'_blank','noopener,noreferrer');
             };
-            btn.addEventListener('animationend', onAnimEnd);
+            btn.addEventListener('animationend',end);
         };
-        btn.addEventListener('click', activate);
-        btn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') activate(e); });
+
+        btn.addEventListener('click',activate);
     });
-
-    // ---------- اسکرول نرم دلخواه با مدت زمان ثابت (کندتر از حالت پیشفرض) ----------
-    function smoothScrollTo(targetY, duration){
-        const startY = window.scrollY || window.pageYOffset;
-        const diff = targetY - startY;
-        const startTime = performance.now();
-        duration = duration || 700; // مدت زمان پیشفرض 700ms — کندتر از پیشفرض مرورگر
-
-        return new Promise(resolve => {
-            function step(now){
-                const time = Math.min(1, (now - startTime) / duration);
-                // easeInOutQuad
-                const eased = time < 0.5 ? 2*time*time : -1 + (4 - 2*time)*time;
-                window.scrollTo(0, Math.round(startY + diff * eased));
-                if (time < 1) requestAnimationFrame(step); else resolve();
-            }
-            requestAnimationFrame(step);
-        });
-    }
-
-    document.querySelectorAll('.nav-link').forEach(a => {
-        a.addEventListener('click', function(e){
-            const href = this.getAttribute('href');
-            if (!href || !href.startsWith('#')) return;
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (!target) return;
-            const rect = target.getBoundingClientRect();
-            const targetY = window.scrollY + rect.top - 52; // 52px offset to account for sticky menu
-            // اینجا از smoothScrollTo با مدت زمان 800ms استفاده می‌کنیم تا کندتر و نرم‌تر باشه
-            smoothScrollTo(targetY, 800);
-        });
-    });
-
-    // جلوگیری از فوکوس زنده در کلیک
-    document.querySelectorAll('.social-btn').forEach(b=>{ b.addEventListener('mouseup', ()=> b.blur()); });
 })();
-</script></body>
+</script>
+
+</body>
 </html>
