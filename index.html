@@ -3,51 +3,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enayat Azimi | Cybersecurity</title><style>
-    :root{
-        --bg:#0d0d0d;
-        --yellow:#ffeb3b;
-        --red:#e60000;
-    }
-
-    html,body{height:100%;}
+    /* ---- پایه ----- */
+    :root{--bg:#0d0d0d;--red:#e60000;--red-soft:#ff4444;--text:#ffffff}
+    *{box-sizing:border-box}
     body {
         margin: 0;
         background: var(--bg);
         font-family: Arial, Helvetica, sans-serif;
-        color: #fff;
-        -webkit-font-smoothing:antialiased;
-        -moz-osx-font-smoothing:grayscale;
+        color: var(--text);
     }
 
-    /* --- 🔥 منوی نئونی قرمز --- */
+    /* --- منوی ثابت --- */
     .sticky-menu {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0,0,0,0.85);
         padding: 12px 0;
         display: flex;
         justify-content: center;
         gap: 35px;
         z-index: 9999;
         border-bottom: 2px solid var(--red);
-        box-shadow: 0 0 20px rgba(230,0,0,0.4);
+        box-shadow: 0 0 8px rgba(230,0,0,0.12);
         backdrop-filter: blur(6px);
     }
 
     .sticky-menu a {
-        color: #ff4444;
+        color: var(--red-soft);
         font-size: 18px;
         text-decoration: none;
         font-weight: bold;
         letter-spacing: 1px;
-        transition: 0.3s;
+        transition: color 0.25s ease, text-shadow 0.25s ease;
     }
 
     .sticky-menu a:hover {
         color: #fff;
-        text-shadow: 0 0 12px #ff0000, 0 0 20px #ff0000;
+        text-shadow: 0 0 8px rgba(0,0,0,0.6);
     }
 
     header {
@@ -58,110 +52,93 @@
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid #222;
-        position:relative;
     }
 
-    /* ===== اسم با رنگ زرد + لکه‌های خون (لکه‌های مشکی هم رنگ پس‌زمینه) ===== */
-    header h1{
-        margin:0;
-        position:relative;
-        font-size:28px;
-        display:flex;
-        align-items:center;
-        gap:15px;
-        z-index:2;
+    header h1 {
+        margin: 0;
+        color: var(--red);
+        font-size: 28px;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
     }
 
-    .profile-pic{
-        width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--red);
+    .profile-pic {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--red);
     }
 
-    /* متن اسم */
-    .name-text{
-        color:var(--yellow);
-        font-weight:800;
-        letter-spacing:1px;
-        position:relative;
-        padding:6px 10px;
-        mix-blend-mode:normal;
-        text-shadow: 0 0 6px rgba(0,0,0,0.9);
-    }
+    /* کلاس مخصوص برای اسم - می‌تونم طبق عکس شما تغییر بدم */
+    .name-highlight {
+font-family: 'Grunge', 'Stalinist One', sans-serif;
+font-weight: 900;
+color: #f4b327;
+letter-spacing: 3px;
+text-transform: uppercase;
+font-size: 3.2rem;
+text-shadow: 0 0 6px #000;
 
-    /* پوشش لکه خون به‌صورت چند radial-gradients؛ نقاط سیاه را با رنگ پس‌زمینه می‌سازیم تا "یکی با پس‌زمینه" به‌نظر برسند */
-    .name-splatter{
-        position:absolute;
-        inset:0;
-        pointer-events:none;
-        z-index:1;
-        opacity:0.9;
-        background-image:
-            radial-gradient(8px 8px at 10% 20%, rgba(0,0,0,1) 0 60%, transparent 61%),
-            radial-gradient(14px 14px at 30% 30%, rgba(0,0,0,1) 0 55%, transparent 56%),
-            radial-gradient(18px 18px at 50% 10%, rgba(0,0,0,1) 0 60%, transparent 61%),
-            radial-gradient(24px 18px at 70% 30%, rgba(0,0,0,1) 0 55%, transparent 56%),
-            radial-gradient(40px 30px at 30% 70%, rgba(230,0,0,0.95) 0 40%, rgba(160,0,0,0.95) 41% 70%, transparent 71%),
-            radial-gradient(30px 24px at 55% 60%, rgba(200,0,0,0.95) 0 40%, rgba(120,0,0,0.9) 41% 70%, transparent 71%),
-            radial-gradient(18px 14px at 75% 75%, rgba(200,0,0,0.95) 0 40%, transparent 41%);
-        background-blend-mode:normal, normal, normal, normal, normal, normal, normal;
-        mix-blend-mode:screen;
-        transform:translateX(-8%);
-    }
+}
 
-    /* باکس کوچک پشت اسم برای خوانایی */
-    .name-box{position:relative;display:inline-block;padding:4px 10px;border-radius:6px;}
-
-    /* --- اسکرول کنترل‌شده: CSS طبیعی را غیرفعال می‌کنیم و JS سفارشی می‌کنیم --- */
-    html{scroll-behavior:auto}
-
-    .hero{
+.hero {
         background: url("hero.jpg.webp") center/cover no-repeat;
-        height:530px;display:flex;align-items:center;padding-left:60px;border-bottom:3px solid var(--red);
+        height: 530px;
+        display: flex;
+        align-items: center;
+        padding-left: 60px;
+        border-bottom: 3px solid var(--red);
     }
 
-    .hero h2{font-size:48px;margin:0;font-weight:bold;text-shadow:0 0 15px #000}
-    .hero p{font-size:18px;max-width:500px;margin-top:10px;opacity:0.9;text-shadow:0 0 10px #000}
-.section{padding:40px;border-bottom:1px solid #222}
-    h3{border-left:4px solid var(--red);padding-left:12px;font-size:26px;margin-bottom:15px}
-    .info-block{display:flex;align-items:center;gap:20px;margin:25px 0}
-    .info-block img{width:130px;border-radius:10px;border:2px solid #222}
-    .info-text{max-width:700px;font-size:17px;opacity:0.95;line-height:1.6}
-
-    footer{padding:20px;text-align:center;background:#000;border-top:1px solid #222;margin-top:20px;font-size:14px}
-    a{color:#ff3333;text-decoration:none}
-
-    /* ---------- آیکون‌های نئونی بالا فوتر (تغییر hover: خیلی روشن تا آیکون "واشد" شود) ---------- */
-    .social-wrap{display:flex;justify-content:center;gap:28px;padding:28px 0 8px 0;align-items:center}
-    .social-btn{width:56px;height:56px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;cursor:pointer;user-select:none;transform-origin:center center;transition:transform .18s ease, box-shadow .18s ease}
-    .social-btn:active{transform:scale(.95)}
-    .social-svg{width:36px;height:36px;display:block}
-
-    .neon-stroke{stroke-linecap:round;stroke-linejoin:round;stroke-width:1.8;stroke:#ff2a2a;fill:none;filter:drop-shadow(0 0 6px #ff2a2a) drop-shadow(0 0 12px rgba(255,60,60,0.6));transition:all .25s ease}
-    .neon-fill{fill:#ff2a2a;filter:drop-shadow(0 0 6px #ff2a2a) drop-shadow(0 0 10px rgba(255,60,60,0.45));transition:all .25s ease}
-
-    /* حالت عادی hover (ملایم‌تر) */
-    .social-btn:hover .neon-stroke, .social-btn:hover .neon-fill{stroke:#ff8a8a;fill:#ff8a8a;filter:drop-shadow(0 0 8px rgba(255,80,80,0.45))}
-
-    /* وقتی می‌خواهیم از شدت روشنایی "آیکون دیده نشود"، شفافیت مسیرها را کم می‌کنیم و نورِ هاله را زیاد می‌کنیم */
-    .social-btn.wash:hover .neon-stroke, .social-btn.wash:hover .neon-fill{
-        opacity:0; /* مسیر خود آیکون محو می‌شود */
-        filter: drop-shadow(0 0 36px #ffffff) drop-shadow(0 0 64px rgba(255,255,255,0.9));
+    .hero h2 {
+        font-size: 48px;
+        margin: 0;
+        font-weight: bold;
+        text-shadow: 0 0 8px rgba(0,0,0,0.6);
     }
 
-    /* اضافه کردن یک هاله سفید بزرگ برای wash effect (pseudo) */
-    .social-btn.wash:hover::after{
-        content:"";
-        position:absolute;
-        inset: -8px;
-        border-radius:12px;
-        filter: blur(18px) opacity(0.95);
-        background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0) 60%);
-        pointer-events:none;
+    .hero p { font-size: 18px; max-width: 500px; margin-top: 10px; opacity: 0.95 }
+
+    .section { padding: 40px; border-bottom: 1px solid #222 }
+
+    h3 { border-left: 4px solid var(--red); padding-left: 12px; font-size: 26px; margin-bottom: 15px }
+
+    .info-block { display: flex; align-items: center; gap: 20px; margin: 25px 0 }
+    .info-block img { width: 130px; border-radius: 10px; border: 2px solid #222 }
+    .info-text { max-width: 700px; font-size: 17px; opacity: 0.95; line-height: 1.6 }
+
+    footer { padding: 20px; text-align: center; background: #000; border-top: 1px solid #222; margin-top: 20px; font-size: 14px }
+    a { color: #ff3333; text-decoration: none }
+
+    /* ---------- آیکون‌های شبکه‌های اجتماعی (حذف نئون، فقط قرمز) ---------- */
+    .social-wrap { display: flex; justify-content: center; gap: 28px; padding: 28px 0 8px 0; align-items: center }
+
+    .social-btn {
+        width: 56px; height: 56px; display: inline-flex; align-items: center; justify-content: center;
+        border-radius: 12px; cursor: pointer; user-select: none; transform-origin: center center;
+        transition: transform 0.18s ease, filter 0.18s ease, background-color 0.18s ease;
+        background: rgba(255,0,0,0.04);
+        border: 1px solid rgba(255,0,0,0.08);
     }
 
-    @keyframes spin360{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    .spin{animation:spin360 .8s cubic-bezier(.2,.9,.2,1)}
+    .social-btn:active { transform: scale(0.95) }
 
-    /* responsive */
+    .social-svg { width: 36px; height: 36px; display: block }
+/* رنگ خط و پرکنش ساده قرمز بدون افکت نئون */
+    .neon-stroke { stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; stroke: var(--red); fill: none; filter: none; transition: stroke .18s ease }
+    .neon-fill { fill: var(--red); filter: none; transition: fill .18s ease }
+
+    /* وقتی اشاره‌گر میره روش فقط رنگ حفظ بشه (بدون glow یا روشنایی اضافه) */
+    .social-btn:hover .neon-stroke, .social-btn:hover .neon-fill { stroke: var(--red); fill: var(--red) }
+
+    /* انیمیشن اسپین (حفظ شد) */
+    @keyframes spin360 { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    .spin { animation: spin360 0.8s cubic-bezier(.2,.9,.2,1) }
+
+    /* --- ریسپانسیو --- */
     @media (max-width:768px){
         header{padding:15px 20px}
         header h1{font-size:22px}
@@ -180,6 +157,13 @@
     }
 </style>
 
+<link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
+<style>
+@font-face {
+    font-family: 'Grunge';
+    src: url('https://fonts.cdnfonts.com/s/15086/Youmurdererbb-pwoK.otf') format('opentype');
+}
+</style>
 </head><body><!-- 🔥 منوی هکری --><div class="sticky-menu">
     <a href="#home" class="nav-link">Home</a>
     <a href="#about" class="nav-link">About me</a>
@@ -188,14 +172,11 @@
 </div><header id="home">
     <h1>
         <img src="me.jpg" class="profile-pic" alt="Profile picture of Enayat Azimi">
-        <span class="name-box">
-            <span class="name-text">ENAYAT AZIMI</span>
-            <span class="name-splatter" aria-hidden="true"></span>
-        </span>
+        <span class="name-highlight">ENAYAT AZIMI</span>
     </h1>
 </header><section class="hero" aria-label="hero section">
     <div>
-<h2>Cybersecurity Student</h2>
+        <h2>Cybersecurity Student</h2>
         <p>I am learning Linux, Networking, Security+, CEH, Python, Bash scripting, and ethical hacking tools.</p>
     </div>
 </section><section class="section" id="about">
@@ -204,7 +185,7 @@
         My name is <b>Enayat Azimi</b>.  
         I am passionate about cybersecurity, ethical hacking, Linux systems, and penetration testing.
     </p>
-</section><section class="section" id="skills">
+</section><!-- PART 2: skills & social icons --><section class="section" id="skills">
     <h3>Network+</h3>
     <div class="info-block">
         <img src="networkplus.webp" alt="Network+">
@@ -233,7 +214,7 @@
             and manage systems efficiently.  
             Every ethical hacker needs to understand scripting.
         </div>
-    </div>
+</div>
 </section><section class="section">
     <h3>Security+</h3>
     <div class="info-block">
@@ -263,32 +244,28 @@
             and real-world attack techniques used by both hackers and defenders.
         </div>
     </div>
-</section><!-- ---------- آیکون‌های شبکه‌های اجتماعی (نئونی) بالای فوتر ---------- --><div class="social-wrap" aria-label="social links">
+</section><!-- ---------- آیکون‌های شبکه‌های اجتماعی (بدون نئون) ---------- --><div class="social-wrap" aria-label="social links">
     <!-- YouTube -->
-    <div class="social-btn wash" role="button" tabindex="0"
+    <div class="social-btn" role="button" tabindex="0"
          data-href="https://youtube.com/@shadowguardtech?si=ZsidUowVjtZMVNoC"
          title="YouTube — ShadowGuardTech" aria-label="YouTube — ShadowGuardTech">
         <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
-            <!-- بدنه یوتیوب -->
             <path class="neon-stroke" d="M23.5 6.1c-.2-1.6-1.6-2.9-3.2-3.1C17.4 2.6 12 2.6 12 2.6s-5.4 0-8.3.4C2.1 3.2.8 4.5.6 6.1.2 9 .2 12 .2 12s0 3 .4 5.9c.2 1.6 1.6 2.9 3.2 3.1 2.9.4 8.3.4 8.3.4s5.4 0 8.3-.4c1.6-.2 3-1.5 3.2-3.1.4-2.9.4-5.9.4-5.9s0-3-.4-5.9z"/>
-            <!-- مثلث پخش -->
             <path class="neon-fill" d="M10 15.5V8.5l6 3.5-6 3.5z"/>
-</svg>
+        </svg>
     </div><!-- Instagram -->
-<div class="social-btn wash" role="button" tabindex="0"
+<div class="social-btn" role="button" tabindex="0"
      data-href="https://www.instagram.com/saeedazimi_official/"
      title="Instagram — saeedazimi_official" aria-label="Instagram — saeedazimi_official">
     <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
-        <!-- بیرون قاب -->
         <rect class="neon-stroke" x="3" y="3" width="18" height="18" rx="5"/>
-        <!-- دایره داخلی -->
         <circle class="neon-stroke" cx="12" cy="12" r="3.2"/>
-        <!-- نقطه بالا -->
         <circle class="neon-fill" cx="17.5" cy="6.5" r="0.7"/>
     </svg>
 </div>
 
-<!-- LinkedIn --><div class="social-btn wash" role="button" tabindex="0"
+<!-- LinkedIn -->
+<div class="social-btn" role="button" tabindex="0"
      data-href="https://ir.linkedin.com/in/saeed-azimi-282306399"
      title="LinkedIn — Saeed Azimi" aria-label="LinkedIn — Saeed Azimi">
     <svg class="social-svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -303,24 +280,45 @@
 </section><footer>
     © 2025 Enayat Azimi — All rights reserved.
 </footer><script>
-    // --- اسکرول سفارشی کنترل‌شده (کندتر، روان‌تر) ---
-    function scrollToY(targetY, duration = 900) {
+(function(){
+    // ---------- رفتار دکمه‌های شبکه اجتماعی (اسپین سپس باز شدن لینک) ----------
+    const buttons = document.querySelectorAll('.social-btn');
+
+    buttons.forEach(btn => {
+        const activate = (e) => {
+            e && e.preventDefault && e.preventDefault();
+const url = btn.getAttribute('data-href');
+            if (!url) return;
+            btn.classList.remove('spin');
+            void btn.offsetWidth;
+            btn.classList.add('spin');
+            const onAnimEnd = () => {
+                btn.removeEventListener('animationend', onAnimEnd);
+                window.open(url, '_blank', 'noopener,noreferrer');
+            };
+            btn.addEventListener('animationend', onAnimEnd);
+        };
+        btn.addEventListener('click', activate);
+        btn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') activate(e); });
+    });
+
+    // ---------- اسکرول نرم دلخواه با مدت زمان ثابت (کندتر از حالت پیشفرض) ----------
+    function smoothScrollTo(targetY, duration){
         const startY = window.scrollY || window.pageYOffset;
         const diff = targetY - startY;
         const startTime = performance.now();
+        duration = duration || 700; // مدت زمان پیشفرض 700ms — کندتر از پیشفرض مرورگر
 
-        function easeInOutCubic(t) {
-            return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
-        }
-
-        function tick(now) {
-            const elapsed = now - startTime;
-            const t = Math.min(1, elapsed / duration);
-            const eased = easeInOutCubic(t);
-            window.scrollTo(0, Math.round(startY + diff * eased));
-            if (t < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
+        return new Promise(resolve => {
+            function step(now){
+                const time = Math.min(1, (now - startTime) / duration);
+                // easeInOutQuad
+                const eased = time < 0.5 ? 2*time*time : -1 + (4 - 2*time)*time;
+                window.scrollTo(0, Math.round(startY + diff * eased));
+                if (time < 1) requestAnimationFrame(step); else resolve();
+            }
+            requestAnimationFrame(step);
+        });
     }
 
     document.querySelectorAll('.nav-link').forEach(a => {
@@ -331,32 +329,14 @@
             const target = document.querySelector(href);
             if (!target) return;
             const rect = target.getBoundingClientRect();
-            const targetY = window.scrollY + rect.top - 56; // offset for sticky menu
-            scrollToY(targetY, 1000); // 1000ms for slower scroll
+            const targetY = window.scrollY + rect.top - 52; // 52px offset to account for sticky menu
+            // اینجا از smoothScrollTo با مدت زمان 800ms استفاده می‌کنیم تا کندتر و نرم‌تر باشه
+            smoothScrollTo(targetY, 800);
         });
     });
 
-    // --- آیکون‌ها: انیمیشن چرخش + wash effect باز کردن لینک ---
-    (function(){
-        const buttons = document.querySelectorAll('.social-btn');
-        buttons.forEach(btn => {
-            const activate = (e) => {
-                e && e.preventDefault && e.preventDefault();
-                const url = btn.getAttribute('data-href');
-                if (!url) return;
-                btn.classList.remove('spin');
-                void btn.offsetWidth; // restart animation
-                btn.classList.add('spin');
-                btn.addEventListener('animationend', function onEnd(){
-                    btn.removeEventListener('animationend', onEnd);
-                    window.open(url, '_blank', 'noopener,noreferrer');
-                });
-            };
-
-            btn.addEventListener('click', activate);
-            btn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') activate(e); });
-            btn.addEventListener('mouseup', ()=> btn.blur());
-        });
-    })();
+    // جلوگیری از فوکوس زنده در کلیک
+    document.querySelectorAll('.social-btn').forEach(b=>{ b.addEventListener('mouseup', ()=> b.blur()); });
+})();
 </script></body>
 </html>
